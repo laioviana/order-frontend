@@ -61,7 +61,12 @@ export class AddOrderComponent implements OnInit {
   get f() { return this.orderForm.controls; }
 
   submit() {
-    if (!this.orderForm.valid) {
+    if (!this.orderForm.valid ) {
+      return;
+    }
+
+    if(this.orderForm.value.zipCode === '1017 CA' || this.orderForm.value.zipCode === '1017CA') {
+      this.openSnackBar("Zip code not allowed");
       return;
     }
 

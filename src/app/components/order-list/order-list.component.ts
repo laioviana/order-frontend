@@ -21,7 +21,7 @@ export class OrderListComponent implements OnInit {
 
   dataSource: MatTableDataSource<Order> = new MatTableDataSource();
   totalRows = 0;
-  pageSize = 5;
+  pageSize = 10;
   currentPage = 0;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   timeout: any;
