@@ -48,10 +48,9 @@ export class AddOrderComponent implements OnInit {
     .subscribe({
       next: data => {
         this.customers = data;
-        console.log(data);
       },
       error: error => {
-        console.log(error);
+        this.openSnackBar("Error: " + error);
       },
       complete: () => {
         console.log("Request completed");
@@ -67,7 +66,6 @@ export class AddOrderComponent implements OnInit {
     }
 
     if(this.customerRadio === "new") {
-
       const newCustomer = {
         firstName: this.orderForm.value.firstName,
         lastName: this.orderForm.value.lastName,
@@ -86,7 +84,6 @@ export class AddOrderComponent implements OnInit {
       }
       this.createorder(newOrder);
     }
-    console.log(this.orderForm.value);
   }
 
   createCustomer(newCustomer: any) {
@@ -94,7 +91,6 @@ export class AddOrderComponent implements OnInit {
     .subscribe({
       next: data => {
         const savedCustomer = data;
-        console.log(data);
         const newOrder = {
           productType: this.orderForm.value.productType,
           description: this.orderForm.value.description,
