@@ -1,0 +1,70 @@
+<div class="form-container">
+    <div class="radio-grup">
+        <label>Customer: </label>
+        <mat-radio-group  [(ngModel)]="customerRadio" (change)="radioChange($event)" aria-label="Customer">
+            <mat-radio-button checked value="existing">Existing</mat-radio-button>
+            <mat-radio-button value="new">New</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <form [formGroup]="orderForm" (submit)="submit()">
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> First Name
+            </mat-label>
+            <input matInput formControlName="firstName" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> Last Name
+            </mat-label>
+            <input matInput formControlName="lastName" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> E-mail
+            </mat-label>
+            <input matInput formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> Country
+            </mat-label>
+            <input matInput formControlName="country" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> Zip Code
+            </mat-label>
+            <input matInput formControlName="zipCode" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field-small" appearance="fill">
+            <mat-label> City
+            </mat-label>
+            <input matInput formControlName="city" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio == 'new'" class="form-field" appearance="fill">
+            <mat-label> Address Line
+            </mat-label>
+            <input matInput formControlName="addressLine" required>
+        </mat-form-field>
+        <mat-form-field *ngIf="customerRadio != 'new'" class="form-field" appearance="fill">
+            <mat-label>Customer</mat-label>
+            <mat-select formControlName="customerSelect">
+            <mat-option  *ngFor="let customer of customers" [value]="customer.id">
+                {{customer.firstName}} {{customer.lastName}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Product Type</mat-label>
+            <mat-select formControlName="productType">
+            <mat-option  *ngFor="let type of productType" [value]="type">
+                {{type}}
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="form-button">
+            <button mat-raised-button color="accent" routerLink="/orders">Cancel</button>
+            <button style="margin-left: 10px" mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+form {
+    width: 50%;
+}
+.form-field-small {
+    width: 40%;
+}
+
+.form-field {
+    width: 81%;
+}
+
+.radio-grup {
+    margin-left: 20px;
+}
+
+mat-form-field {
+    margin-left: 10px;
+}
+.form-button {
+    margin-left: 10px;
+}
+
+mat-radio-button {
+    margin-left: 10px;
+}
