@@ -53,7 +53,7 @@ export class OrderListComponent implements OnInit {
         this.isLoading = false;
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         console.log("Request completed");
@@ -69,7 +69,7 @@ export class OrderListComponent implements OnInit {
         this.openSnackBar("Order "+id+" canceled!");
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         this.getAllOrders();
@@ -87,7 +87,7 @@ export class OrderListComponent implements OnInit {
         }, 5000);
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         this.getAllOrders();
@@ -102,7 +102,7 @@ export class OrderListComponent implements OnInit {
         this.openSnackBar("Order "+id+" sent to queue!");
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         this.getAllOrders();

@@ -50,7 +50,7 @@ export class AddOrderComponent implements OnInit {
         this.customers = data;
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         console.log("Request completed");
@@ -104,7 +104,8 @@ export class AddOrderComponent implements OnInit {
         this.createorder(newOrder);
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        console.log(error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         console.log("Request completed");
@@ -120,7 +121,7 @@ export class AddOrderComponent implements OnInit {
         this.router.navigate(['/orders']);
       },
       error: error => {
-        this.openSnackBar("Error: " + error);
+        this.openSnackBar("Error: " + error.error);
       },
       complete: () => {
         console.log("Request completed");
